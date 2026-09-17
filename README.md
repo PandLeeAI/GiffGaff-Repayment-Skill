@@ -1,3 +1,5 @@
+[中文](README.md) · [English](README.en.md)
+
 # GiffGaff-Repayment-Skill
 <img width="300" height="400" alt="6a4d14e31905fd6e854cf333339608c1" src="https://github.com/user-attachments/assets/f321d8ae-233b-45cb-aed9-d24829070e6c" />
 
@@ -27,7 +29,8 @@ GiffGaff-Repayment-Skill/
 │   ├── evidence-checklist.md     # 取证清单与证据链、文件命名、PAC 坑点证据
 │   ├── complaint-templates.md    # 模块化英文模板（保号/退款/赔偿/转网主张段 + 拼装示例）
 │   ├── ombudsman-form-guide.md   # Ombudsman 表单逐字段填写指引
-│   └── official-links.md         # 官方入口汇总 + 原文地址 + 作者引流
+│   ├── official-links.md         # 官方入口汇总 + 原文地址 + 作者引流
+│   └── autonomous-mode.md        # 自主操作模式：浏览器自动化/屏幕阅读 SOP 与参数清单
 ├── README.md                     # 中文说明
 ├── README.en.md                  # 英文说明 (English)
 └── LICENSE

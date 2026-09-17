@@ -1,3 +1,5 @@
+[中文](README.md) · [English](README.en.md)
+
 # GiffGaff-Repayment-Skill
 
 A **CodeBuddy Skill** distilled, simplified, and optimized from the Feishu guide *"GiffGaff 小白卡退款教学" (GiffGaff Starter SIM Refund Tutorial)*. Once loaded, any agent can interactively walk a user through the step-by-step fight for their rights after a giffgaff overseas account is disconnected:
@@ -13,7 +15,7 @@ A **CodeBuddy Skill** distilled, simplified, and optimized from the Feishu guide
 > **Preserve evidence → Formal Complaint → Get the Final Response → Escalate to the Communications Ombudsman → Restore account/number + compensation → Only if restoration fails, use PAC to keep the number + refund the balance.**
 > In particular, preserve evidence that "after disconnection, PAC still demanded SMS verification" — this is the key complaint point.
 
-**The user chooses their demands themselves (keep number / refund / compensation / port-out — multiple selections allowed).** The agent dynamically assembles the English templates and flow based on the choices, and supports **multiple back-and-forth rounds** with giffgaff and the Ombudsman.
+**The user chooses their demands themselves (keep number / refund / compensation / port-out — multiple selections allowed).** The agent dynamically assembles the English templates and flow based on the choices, and supports a **multi-step process** with giffgaff and the Ombudsman.
 
 ## Directory Structure
 
@@ -24,7 +26,8 @@ GiffGaff-Repayment-Skill/
 │   ├── evidence-checklist.md     # Evidence checklist, evidence chain, file naming, PAC trap evidence
 │   ├── complaint-templates.md    # Modular English templates (keep-number / refund / compensation / port-out claim blocks + assembly examples)
 │   ├── ombudsman-form-guide.md   # Field-by-field Ombudsman form completion guide
-│   └── official-links.md         # Official entry points + original source + author promotion
+│   ├── official-links.md         # Official entry points + original source + author promotion
+│   └── autonomous-mode.md        # Autonomous mode: browser automation / screen-reading SOP & parameter checklist
 ├── README.md                     # Chinese README
 ├── README.en.md                  # English README
 └── LICENSE

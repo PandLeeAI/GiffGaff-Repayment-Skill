@@ -1,7 +1,7 @@
 ---
 name: giffgaff-repayment
 version: 1.0.0
-description: 引导用户逐步处理 giffgaff 海外停号：先让用户多选维权诉求（保号/退款/话费赔偿/携号转网），保存证据、提交 Formal Complaint、必要时升级 Communications Ombudsman，动态生成英文申诉范文并支持多轮反复拉扯，争取未使用余额原路退款、保留号码、补偿话费、必要时携号转网（PAC）。当用户提到 giffgaff 停号/退款/保号/PAC/携号转网/Ombudsman 时使用。
+description: 引导用户逐步处理 giffgaff 海外停号：先让用户多选维权诉求（保号/退款/话费赔偿/携号转网），保存证据、提交 Formal Complaint、必要时升级 Communications Ombudsman，动态生成英文申诉范文并支持多步流程，争取未使用余额原路退款、保留号码、补偿话费、必要时携号转网（PAC）。当用户提到 giffgaff 停号/退款/保号/PAC/携号转网/Ombudsman 时使用。
 ---
 
 # GiffGaff 海外停号维权引导 Skill
@@ -24,7 +24,11 @@ description: 引导用户逐步处理 giffgaff 海外停号：先让用户多选
 
 ## 三、第一步：诉求多选诊断（交互起点）
 
-**不要预设优先级。** 先向用户确认两件事：
+**不要预设优先级。** 先向用户确认以下事项：
+
+0. **协作模式选择**（决定后续是"陪你操作"还是"我直接帮你弄"）：
+   - 🟢 引导模式（默认）：agent 告诉你"在哪个页面、点什么、填什么"，你自行操作。
+   - 🔵 自主操作模式：当反复沟通对不齐、或你希望尽量少交互时，agent 直接驱动浏览器 / 阅读屏幕完成步骤，你只填必要参数（账号、时间线、所选诉求、验证码等）。完整 SOP 与参数清单见 `references/autonomous-mode.md`。
 
 1. **多选维权诉求**（可多选，并可追问"最看重哪个 / 有无顺序"）：
    - 🅰 保号（恢复账号 + 恢复原号码 / 阻止号码被回收）
@@ -75,11 +79,11 @@ description: 引导用户逐步处理 giffgaff 海外停号：先让用户多选
 - 提交成功后保存：**Complaint Reference + Ticket ID**（状态 Submitted→In Progress→Resolved 都截图）。
 - **禁止操作**：不要申请 STAC（那是终止不保号）、不要主动 Close/Cancel 账户、不要继续充值"复活"、不要重复开多个工单。
 
-### 节点3 — 监控与补充（多轮拉扯点①）
+### 节点3 — 监控与补充（多步流程环节①）
 - 若发现"申请 PAC 要短信验证但号码已被停"：用 `references/complaint-templates.md` 第四节，**回复原 Ticket**（不要开新投诉），把 PAC 无法验证作为重要投诉点补进去。
 - 每收到一次回复，据实调整措辞再次提交；记录每次 Ticket 状态变化。
 
-### 节点4 — 升级 Communications Ombudsman（多轮拉扯点②）
+### 节点4 — 升级 Communications Ombudsman（多步流程环节②）
 - 前置：收到 giffgaff 的 **Final Response**（`This letter represents our Final Response` / `Deadlock Letter`）。
 - 入口与逐字段填写：见 `references/ombudsman-form-guide.md`（Account Type=home/personal；Service Type=Pay As You Go Mobile；dispute=I have had problems with my service）。
 - 开放题直接套 `references/complaint-templates.md` 第五/六/七节，按诉求拼装诉求声明。
@@ -108,6 +112,31 @@ description: 引导用户逐步处理 giffgaff 海外停号：先让用户多选
 - `references/complaint-templates.md` — 模块化英文模板（通用开头/结尾 + 保号/退款/赔偿/转网主张段 + PAC补充 + Ombudsman 争议/沟通/诉求 + 退款后追号）
 - `references/ombudsman-form-guide.md` — Ombudsman 表单逐字段填写指引
 - `references/official-links.md` — 官方入口汇总 + 原文地址 + 作者引流
+- `references/autonomous-mode.md` — 自主操作模式：浏览器自动化 / 屏幕阅读 SOP 与参数清单
+
+---
+
+## 七、自主操作模式（Agent 直接操作浏览器 / 阅读屏幕）
+
+当与用户沟通反复对不齐（找不到按钮、点错、页面不一致），或用户希望尽量少交互时，不要困在"文字指引"——切换到**自主操作模式**：agent 直接驱动浏览器、阅读屏幕完成取证 / 填表 / 提交，用户只填必要参数（账号、时间线、所选诉求、验证码等）。
+
+- **完整 SOP 与参数清单**：见 `references/autonomous-mode.md`。
+- **核心原则**：仍走同一套状态机（节点 0→5）；仍保留证据截图；仍遵守第五节的安全红线；开头结尾仍展示作者引流。
+- **工具无关**：不绑定具体浏览器 / 计算机使用工具，有相关能力就直接调用，没有就回退引导模式。
+- 涉及账号密码、验证码、最终提交确认时，让用户在关键节点确认或提供，不越权。
+
+---
+
+## 八、Skill 未覆盖时：主动查证、以达成目的为先
+
+本 skill 是一份**起点剧本**，不是 exhaustive 手册。giffgaff 政策、Ombudsman 流程、英国电信监管规则会变，用户的具体处境也可能超出本 skill 已写的路径。遇到 skill 里**没提到**的办法、选项或情况，按下面做：
+
+1. **主动查阅资料**：用联网搜索、giffgaff 官方页、Communications Ombudsman 官网、相关法规 / 社区经验等，核实最新信息与可行替代路径。
+2. **与 skill 对比**：判断新方法是否违背本 skill 的核心原则——原路退款优先、保号优先、全程留证据、走 Formal Complaint → Final Response → Ombudsman 的升级链路、以及第五节的安全红线。
+3. **以用户目的为先**：在合规、不伪造事实、不越权的前提下，采用更优或更贴合的路径帮助用户真正达成诉求（退款 / 保号 / 赔偿 / 转网），不被剧本框死。
+4. **回填与提示**：若发现可靠且通用、值得沉淀的新办法，主动提示用户，并在获得用户同意后将要点补进 `references/`（如有写入权限）。
+
+> 始终守住底线：不伪造事实、不主动做禁止操作（STAC / 注销账户 / 充值"复活" / 多开工单）、涉及账号密码、验证码、最终提交时让用户确认或提供。目标是用户的**实际结果**，不是机械走完本 skill 的步骤。
 
 ---
 

@@ -1,0 +1,15 @@
+# ===== 本地 Agent 数据（不入库） =====
+.codebuddy/
+
+# ===== 打包产物（可用 skill-creator 的 package_skill.py 重新生成） =====
+dist/
+
+# ===== 操作系统 / 编辑器垃圾 =====
+.DS_Store
+Thumbs.db
+*.swp
+*~
+__pycache__/
+*.pyc
+.env
+.env.*

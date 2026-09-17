@@ -1,4 +1,6 @@
 # GiffGaff-Repayment-Skill
+![Uploading 6a4d14e31905fd6e854cf333339608c1.jpg…]()
+
 
 把飞书《GiffGaff小白卡退款教学》消化、简化、优化成的 **CodeBuddy Skill**，让任意 agent 加载后，交互式引导用户一步步完成 giffgaff 海外停号后的维权：
 

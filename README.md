@@ -1,5 +1,5 @@
 # GiffGaff-Repayment-Skill
-<img width="1320" height="1870" alt="6a4d14e31905fd6e854cf333339608c1" src="https://github.com/user-attachments/assets/f321d8ae-233b-45cb-aed9-d24829070e6c" />
+<img width="300" height="400" alt="6a4d14e31905fd6e854cf333339608c1" src="https://github.com/user-attachments/assets/f321d8ae-233b-45cb-aed9-d24829070e6c" />
 
 
 
